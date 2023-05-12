@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class TankMove : MonoBehaviour
 {
     public Rigidbody rb;
-    public Vector3 moveDir;
+
     public float movePower;
     public float rotateSpeed;
 
@@ -17,8 +17,14 @@ public class TankMove : MonoBehaviour
     }
     public void Update()
     {
-        Move();
-        
+        /*
+         * 위 아래로 움직이고 좌우방향키로 회전하는 걸 구현하고 싶었습니다.
+         */
+        if (Input.GetKey(KeyCode.UpArrow))
+            transform.Translate(0, 0, 1 * Time.deltaTime * movePower);
+        if (Input.GetKey(KeyCode.DownArrow))
+            transform.Translate(0, 0, -1 * Time.deltaTime * movePower);
+
         if (Input.GetKey(KeyCode.LeftArrow))
             transform.Rotate(Vector3.up * -rotateSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.RightArrow))
@@ -26,13 +32,4 @@ public class TankMove : MonoBehaviour
     }
     
 
-    public void Move()
-    {
-        transform.Translate(moveDir * movePower * Time.deltaTime);
-    }
-    public void OnMove(InputValue value)
-    {
-        moveDir.x = value.Get<Vector2>().x;
-        moveDir.z = value.Get<Vector2>().y;
-    }
 }
