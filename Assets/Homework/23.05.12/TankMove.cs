@@ -11,6 +11,9 @@ public class TankMove : MonoBehaviour
     public float movePower;
     public float rotateSpeed;
 
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform bulletPoint;
+    [SerializeField] private float repeatTime = 1f;
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -31,5 +34,30 @@ public class TankMove : MonoBehaviour
             transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
     }
     
+    public void OnFire(InputValue value)
+    {
+        
+    }
 
+    private Coroutine bulletRoutine;
+    IEnumerator BulletMakeRoutine()
+    {
+        while(true)
+        {
+            Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+            yield return new WaitForSeconds(repeatTime);
+        }
+    }
+
+    private void OnRepeatFire(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            bulletRoutine = StartCoroutine(BulletMakeRoutine());
+        }
+        else
+        {
+            StopCoroutine(bulletRoutine);
+        }
+    }
 }

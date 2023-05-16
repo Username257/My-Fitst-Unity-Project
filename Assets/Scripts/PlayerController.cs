@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
     }
     public void Update()
     {
-        //Move();
-        //Rotate();
+        Move();
+        Rotate();
         LookAt();
     }
     public void Move()

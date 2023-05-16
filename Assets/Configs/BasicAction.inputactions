@@ -15,9 +15,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
+                    "name": "Fire",
                     "type": "Button",
-                    "id": "cf92a479-5008-4dee-9ef4-0e8a7f7aea8b",
+                    "id": "05111417-7ca7-436d-84d5-55989af26361",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RepeatFire",
+                    "type": "PassThrough",
+                    "id": "5ff1cb02-7498-4733-9e8e-211aa49df7eb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -137,23 +146,23 @@
                 },
                 {
                     "name": "",
-                    "id": "93033911-ffb4-489f-8c81-fb3210e1af3b",
+                    "id": "3426b7bc-7a2c-47d6-80a0-feb0247f1b70",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "28beac9d-0df4-4af1-abc0-a5f9c921f676",
-                    "path": "<Mouse>/leftButton",
+                    "id": "dc77b81f-53b0-4a62-9071-16820688f554",
+                    "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "RepeatFire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
