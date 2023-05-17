@@ -14,6 +14,8 @@ public class TankMove : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletPoint;
     [SerializeField] private float repeatTime = 1f;
+
+    public AudioSource audio;
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -45,6 +47,7 @@ public class TankMove : MonoBehaviour
         while(true)
         {
             Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+            audio.Play();
             yield return new WaitForSeconds(repeatTime);
         }
     }
