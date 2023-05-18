@@ -16,6 +16,7 @@ public class TankMove : MonoBehaviour
     [SerializeField] private float repeatTime = 1f;
 
     public AudioSource audio;
+    [SerializeField]  private Animator anim;
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -35,10 +36,16 @@ public class TankMove : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
             transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
     }
-    
+    public void Fire()
+    {
+        anim.SetTrigger("IsTerretMove");
+        Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+        audio.Play();
+   
+    }
     public void OnFire(InputValue value)
     {
-        
+        Fire();
     }
 
     private Coroutine bulletRoutine;
@@ -48,14 +55,16 @@ public class TankMove : MonoBehaviour
         {
             Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
             audio.Play();
+            anim.SetTrigger("IsTerretMove");
             yield return new WaitForSeconds(repeatTime);
         }
     }
 
-    private void OnRepeatFire(InputValue value)
+    public void OnRepeatFire(InputValue value)
     {
         if (value.isPressed)
         {
+            
             bulletRoutine = StartCoroutine(BulletMakeRoutine());
         }
         else

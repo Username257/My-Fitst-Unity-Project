@@ -15,9 +15,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float rotateSpeed;
 
+    private Animator anim;
+
     public void Awake()
     {
         //rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
     public void Update()
     {
@@ -49,7 +52,10 @@ public class PlayerController : MonoBehaviour
     {
         transform.LookAt(new Vector3(0, 0, 0));
     }
-    
+    public void OnFire(InputValue input)
+    {
+        anim.SetTrigger("Fire");
+    }
 	
     private void Rotation()
     {
