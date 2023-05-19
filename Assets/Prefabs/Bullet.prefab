@@ -126,8 +126,8 @@ AudioSource:
   m_GameObject: {fileID: 3996204586549831057}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3a77defcde1caaa40b6f7502547e0c4e, type: 3}
+  OutputAudioMixerGroup: {fileID: -4245453905608009798, guid: 7340b8de57c0c374f80bebf548c518c8, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 5c27182a28a7eb942a362e6d198fe0e6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -226,8 +226,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 5
-  explosion: {fileID: 1105202744167584285}
-  audio: {fileID: 2650830863631474560}
+  explosion: {fileID: 8997029012852797395, guid: d7387391549069a4eb8b8ebb293a1d82, type: 3}
+  OnExplosioned:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2650830863631474560}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1105202744167739085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -288,10 +302,5 @@ PrefabInstance:
 --- !u!4 &1105202744167285639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 486730, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
-  m_PrefabInstance: {fileID: 1105202744167739085}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1105202744167584285 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 195792, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
   m_PrefabInstance: {fileID: 1105202744167739085}
   m_PrefabAsset: {fileID: 0}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class BulletExplosion : MonoBehaviour
@@ -7,7 +8,8 @@ public class BulletExplosion : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] private GameObject explosion;
-    public AudioSource audio;
+    public UnityEvent OnExplosioned;
+    //public AudioSource audio;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -23,7 +25,8 @@ public class BulletExplosion : MonoBehaviour
     {
         Instantiate(explosion, transform.position, transform.rotation);
         Destroy(gameObject);
-        audio.Play();
+        OnExplosioned?.Invoke();
+        //audio.Play();
     }
 
 

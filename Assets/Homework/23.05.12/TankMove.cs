@@ -41,6 +41,8 @@ public class TankMove : MonoBehaviour
         anim.SetTrigger("IsTerretMove");
         Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
         audio.Play();
+
+        GameManager.Data.AddShootCount(1);
    
     }
     public void OnFire(InputValue value)
